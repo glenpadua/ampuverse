@@ -1,24 +1,19 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ExternalLink, Twitter, Instagram } from "lucide-react";
 
-const Home = () => {
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="w-full flex flex-col sm:flex-row flex-grow overflow-hidden min-h-screen">
       <aside className="sm:w-1/3 md:1/4 w-full flex p-4 bg-slate-900 items-center">
         <div className="sticky top-0 p-4 w-full">
           <div className="w-96">
-            <div className="">
-              <h1 className="text-xl text-white text-center">
-                Login to Ampuverse
-              </h1>
-            </div>
-            {/* <div className="auth-widget text-white">
-              <AuthForm />
-            </div> */}
-            <div className="text-center">
+            {children}
+            <div className="text-center mt-4">
               <Button variant="link" className="text-blue-400">
                 <Link
                   href={"https://forms.gle/3asXLy1aHCoaBKy69"}
@@ -43,9 +38,7 @@ const Home = () => {
           </div>
         </div>
       </aside>
-      <main className="w-full min-h-full bg-[url('/images/image_1.png')] bg-cover bg-no-repeat bg-center"></main>
+      <main className="w-full min-h-full bg-[url('/images/image_1.png')] bg-cover bg-no-repeat bg-center" />
     </div>
   );
-};
-
-export default Home;
+}
